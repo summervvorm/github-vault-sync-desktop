@@ -1,0 +1,12 @@
+node_modules/
+*.log
+.github-token
+.github-token.txt
+.env
+
+# 构建产物：由 GitHub Release 作为附件承载，不提交进仓库
+# （与 Obsidian 官方 sample plugin 的做法一致）
+main.js
+test/headless.cjs
+test/plugin-e2e.cjs
+scripts/vault-cli.cjs

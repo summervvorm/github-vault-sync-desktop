@@ -1,0 +1,18 @@
+{
+  "name": "github-vault-sync",
+  "version": "0.1.0",
+  "description": "Obsidian vault <-> GitHub repository sync plugin",
+  "private": true,
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node esbuild.config.mjs --test && node test/headless.cjs && node test/plugin-e2e.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "esbuild": "^0.24.2",
+    "obsidian": "^1.7.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,4 @@
+# pnpm 10+ 起，构建脚本放行配置不再从 package.json 读取，改由本文件承载。
+# esbuild 需要运行安装脚本下载平台二进制，必须显式放行。
+allowBuilds:
+  esbuild: true
