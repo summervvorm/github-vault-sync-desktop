@@ -1,9 +1,9 @@
 {
   "id": "github-vault-sync-desktop",
   "name": "GitHub Vault Sync (Desktop)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minAppVersion": "1.11.4",
-  "description": "Sync your Obsidian vault with a GitHub repository. Commits local changes, pulls remote updates, and pushes automatically.",
+  "description": "Sync your vault with a GitHub repository. Commits local changes, pulls remote updates, and pushes automatically.",
   "author": "summervvorm",
   "authorUrl": "https://github.com/summervvorm",
   "isDesktopOnly": true
