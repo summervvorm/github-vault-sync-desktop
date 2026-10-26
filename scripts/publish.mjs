@@ -7,7 +7,7 @@
  * 从环境变量读令牌。因此令牌不会进入 argv、也不会写进 .git/config。
  *
  * 用法：
- *   node scripts/publish.mjs --repo summervvorm/github-vault-sync --token-file .github-token
+ *   node scripts/publish.mjs --repo summervvorm/github-vault-sync-desktop --token-file .github-token
  */
 
 import { execFile } from 'node:child_process';
@@ -49,7 +49,7 @@ function headers(token, extra = {}) {
   return {
     Authorization: `Bearer ${token}`,
     Accept: 'application/vnd.github+json',
-    'User-Agent': 'github-vault-sync-publish',
+    'User-Agent': 'github-vault-sync-desktop-publish',
     'X-GitHub-Api-Version': '2022-11-28',
     ...extra,
   };
@@ -138,7 +138,7 @@ async function uploadAsset(token, repo, releaseId, filePath, assetName) {
 
 async function main() {
   const token = await readToken();
-  const repo = arg('repo', 'summervvorm/github-vault-sync');
+  const repo = arg('repo', 'summervvorm/github-vault-sync-desktop');
   const dir = path.resolve(arg('dir', process.cwd()));
   const [owner, name] = repo.split('/');
   if (!owner || !name) {

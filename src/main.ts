@@ -25,7 +25,7 @@ class LogModal extends Modal {
 
   onOpen(): void {
     this.contentEl.empty();
-    this.contentEl.createEl('h3', { text: 'GitHub Vault Sync 日志' });
+    this.contentEl.createEl('h3', { text: 'GitHub Vault Sync (Desktop) 日志' });
     // 样式一律走 CSS 类，不写内联样式，否则用户无法用主题或 CSS 片段覆盖
     const pre = this.contentEl.createEl('pre', { cls: 'gvs-log-content' });
     pre.setText(this.lines.length > 0 ? this.lines.join('\n') : '（暂无日志）');
@@ -376,9 +376,9 @@ export default class GvsPlugin extends Plugin {
     // 按 Obsidian 插件规范：默认配置下控制台只应出现错误，
     // 普通信息留在插件内的日志缓冲里，用「查看同步日志」命令查看。
     if (level === 'error') {
-      console.error('[github-vault-sync]', line);
+      console.error('[github-vault-sync-desktop]', line);
     } else if (level === 'warn') {
-      console.warn('[github-vault-sync]', line);
+      console.warn('[github-vault-sync-desktop]', line);
     }
   }
 }

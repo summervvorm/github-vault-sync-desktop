@@ -1,5 +1,5 @@
 {
-  "name": "github-vault-sync",
+  "name": "github-vault-sync-desktop",
   "version": "0.1.0",
   "description": "Obsidian vault <-> GitHub repository sync plugin",
   "private": true,

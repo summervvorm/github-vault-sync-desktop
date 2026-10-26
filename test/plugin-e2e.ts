@@ -55,7 +55,7 @@ type TestablePlugin = GvsPlugin & {
 function makePlugin(app: FakeApp): TestablePlugin {
   return new GvsPlugin(
     app as never,
-    { id: 'github-vault-sync', version: '0.1.0' } as never
+    { id: 'github-vault-sync-desktop', version: '0.1.0' } as never
   ) as unknown as TestablePlugin;
 }
 
@@ -242,7 +242,7 @@ async function main(): Promise<void> {
     });
     await plugin2.onload();
 
-    check('令牌已迁移到 secretStorage', withSecrets.secrets.get('github-vault-sync-token') === 'ghp_PLAINTEXT_TOKEN_IN_DATA_JSON_000000');
+    check('令牌已迁移到 secretStorage', withSecrets.secrets.get('github-vault-sync-desktop-token') === 'ghp_PLAINTEXT_TOKEN_IN_DATA_JSON_000000');
     const saved = plugin2.__getStoredData() as Record<string, unknown>;
     check('data.json 中已不含令牌', saved.token === undefined, `token=${String(saved.token)}`);
     check('插件能读到迁移后的令牌', plugin2.getToken() === 'ghp_PLAINTEXT_TOKEN_IN_DATA_JSON_000000');

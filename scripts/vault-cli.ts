@@ -152,7 +152,7 @@ async function commandCreateRepo(): Promise<void> {
   const headers = {
     Authorization: `Bearer ${token}`,
     Accept: 'application/vnd.github+json',
-    'User-Agent': 'github-vault-sync',
+    'User-Agent': 'github-vault-sync-desktop',
     'X-GitHub-Api-Version': '2022-11-28',
   };
 
@@ -163,7 +163,7 @@ async function commandCreateRepo(): Promise<void> {
     body: JSON.stringify({
       name,
       private: true,
-      description: 'Obsidian vault（由 GitHub Vault Sync 管理）',
+      description: 'Obsidian vault（由 GitHub Vault Sync (Desktop) 管理）',
       auto_init: false,
       has_issues: false,
       has_wiki: false,

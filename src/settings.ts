@@ -28,7 +28,7 @@ export const DEFAULT_SETTINGS: PluginSettings = {
   keepConflictCopies: true,
 };
 
-export const TOKEN_SECRET_KEY = 'github-vault-sync-token';
+export const TOKEN_SECRET_KEY = 'github-vault-sync-desktop-token';
 
 interface SecretStorageLike {
   getSecret(id: string): string | null;

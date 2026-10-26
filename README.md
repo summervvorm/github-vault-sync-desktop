@@ -1,4 +1,4 @@
-# GitHub Vault Sync
+# GitHub Vault Sync (Desktop)
 
 Sync your Obsidian vault with a GitHub repository. Your vault **is** the Git working tree — no export, no conversion, no intermediate format.
 
@@ -35,9 +35,9 @@ The Obsidian [developer policies](https://docs.obsidian.md/community-directory/d
 ### Manual
 
 1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](../../releases/latest).
-2. Create `<your-vault>/.obsidian/plugins/github-vault-sync/`.
+2. Create `<your-vault>/.obsidian/plugins/github-vault-sync-desktop/`.
 3. Place the three files in that folder.
-4. Reload Obsidian and enable **GitHub Vault Sync** under **Settings → Community plugins**.
+4. Reload Obsidian and enable **GitHub Vault Sync (Desktop)** under **Settings → Community plugins**.
 
 ### From source
 
@@ -50,25 +50,39 @@ pnpm run build
 
 Then copy `main.js`, `manifest.json`, and `styles.css` into your vault's plugin folder.
 
+### Upgrading from the old `github-vault-sync` id
+
+The plugin was renamed from `github-vault-sync` to `github-vault-sync-desktop` because that id was
+already taken in the community registry. Obsidian keys a plugin's settings by its id, so an existing
+install does not carry over automatically:
+
+1. Turn off the old plugin, then move the folder
+   `.obsidian/plugins/github-vault-sync/` to `.obsidian/plugins/github-vault-sync-desktop/`.
+2. Copy the new `main.js`, `manifest.json`, and `styles.css` into that folder (replacing the old ones).
+3. Reload Obsidian and enable **GitHub Vault Sync (Desktop)**.
+
+Your `data.json` (repository URL, branch, schedule) comes along with the folder. The access token, if
+you stored one, uses a new secret key — enter it once more when prompted.
+
 ## Usage
 
 ### Setting up
 
 1. Create an empty repository on GitHub. Do **not** initialize it with a README.
-2. In Obsidian, open **Settings → GitHub Vault Sync**.
+2. In Obsidian, open **Settings → GitHub Vault Sync (Desktop)**.
 3. Enter the repository URL, for example `https://github.com/you/your-vault.git`.
 4. Choose an authentication method:
    - **System credential helper** (recommended) — Git uses your operating system's credential manager. The token never enters your vault.
    - **Personal access token** — paste a token with `Contents: Read and write`. Stored via Obsidian's `secretStorage` when available.
-5. Run the command **GitHub Vault Sync: Initialize repository**. This creates the local repository, writes `.gitignore` and `.gitattributes`, registers the merge driver, and makes the first commit and push.
+5. Run the command **GitHub Vault Sync (Desktop): Initialize repository**. This creates the local repository, writes `.gitignore` and `.gitattributes`, registers the merge driver, and makes the first commit and push.
 
 ### Day to day
 
 | Action | How |
 |---|---|
-| Sync now | Click the status bar item, or run **GitHub Vault Sync: Sync now** |
+| Sync now | Click the status bar item, or run **GitHub Vault Sync (Desktop): Sync now** |
 | Automatic | Every 300 seconds by default. Configurable, or turn it off. |
-| View log | **GitHub Vault Sync: View sync log** (credentials are redacted) |
+| View log | **GitHub Vault Sync (Desktop): View sync log** (credentials are redacted) |
 
 ### Status bar
 
@@ -139,7 +153,7 @@ MIT — see [LICENSE](LICENSE).
 
 ## 中文说明
 
-**GitHub Vault Sync** 把 Obsidian 仓库与 GitHub 仓库统一成同一个东西：Vault 根目录就是 Git 工作区根目录，一次同步 = 一次 `commit + fetch + merge + push`，不需要任何导出或转换。
+**GitHub Vault Sync (Desktop)** 把 Obsidian 仓库与 GitHub 仓库统一成同一个东西：Vault 根目录就是 Git 工作区根目录，一次同步 = 一次 `commit + fetch + merge + push`，不需要任何导出或转换。
 
 - 仅支持**桌面端**（使用了 Node.js API）
 - 需要本机已安装 Git 2.28+

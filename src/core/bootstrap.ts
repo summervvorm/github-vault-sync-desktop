@@ -99,7 +99,7 @@ async function mergeFile(filePath: string, template: string): Promise<boolean> {
   const separator = existing.endsWith('\n') ? '' : '\n';
   await fs.writeFile(
     filePath,
-    `${existing}${separator}\n# ── 以下由 GitHub Vault Sync 自动补充 ──\n${missing.join('\n')}\n`,
+    `${existing}${separator}\n# ── 以下由 GitHub Vault Sync (Desktop) 自动补充 ──\n${missing.join('\n')}\n`,
     'utf8'
   );
   return true;
